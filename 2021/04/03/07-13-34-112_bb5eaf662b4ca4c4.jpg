@@ -1,0 +1,171 @@
+<!doctype html><html><head><meta charset="utf-8" />
+<meta name=viewport content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="../lbasic.css" />
+
+<title>Emacs: Proportional Font</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-10884311-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-10884311-3');
+</script>
+
+</head>
+<body>
+
+<nav class="nav_back_y94tk"><a href="../index.html">Xah Emacs</a></nav>
+
+
+
+<main>
+
+<div class="ad_top_39054">
+</div>
+
+<h1>Emacs: Proportional Font</h1>
+
+<div class="byline">By Xah Lee. Date: <time>2017-04-29</time>. Last updated: <time>2020-09-01</time>.</div>
+
+<p><kbd>Alt</kbd>+<kbd>x</kbd> <code class="elisp_f_3d841">variable-pitch-mode</code> to toggle between fixed-width and variable-width font.
+(monospace vs proportional)</p>
+
+<p>The font change is for current file/buffer only.</p>
+
+<p>
+(For setting up font in init file, see <a href="emacs_list_and_set_font.html">Emacs: Font Setup</a>)
+</p>
+
+<figure>
+<img src="i/emacs_variable-pitch-mode_2017-04-29.png" alt="emacs variable pitch mode" width="700" height="836" />
+<figcaption>
+<kbd>Alt</kbd>+<kbd>x</kbd> <code class="elisp_f_3d841">variable-pitch-mode</code>
+</figcaption>
+</figure>
+
+<figure>
+<img src="i/emacs_variable-pitch-mode_2015-09-21.png" alt="emacs variable-pitch-mode 2015-09-21" width="528" height="817" />
+<figcaption>
+<kbd>Alt</kbd>+<kbd>x</kbd> <code class="elisp_f_3d841">variable-pitch-mode</code>
+, for reading code.
+</figcaption>
+</figure>
+
+<p>Proportional font is useful for reading info doc, email, etc. Proportional font is easier to read, and shows 20 or more characters per line. It also works great for coding too (except <a href="http://xahlee.info/python/python3_basics.html">Python</a>). Try it. You may be surprised.</p>
+
+<p>
+(Thanks to Oscar Carlsson for suggesting variable-pitch-mode.)
+</p>
+
+<h2>Setup Proportional Font by Major Mode</h2>
+
+<p>Here's how to make some mode always use proportional font.</p>
+
+<pre class="emacs-lisp">(<span class="keyword">progn</span>
+  <span class="comment-delimiter">;; </span><span class="comment">use variable-width font for some modes
+</span>  (<span class="keyword">defun</span> xah-use-variable-width-font ()
+    <span class="string">"Set current buffer to use variable-width font."</span>
+    (variable-pitch-mode 1)
+    <span class="comment-delimiter">;; </span><span class="comment">(text-scale-increase 1 )
+</span>    )
+  (<span class="function-name">add-hook</span> 'nxml-mode-hook 'xah-use-variable-width-font)
+  (<span class="function-name">add-hook</span> 'emacs-lisp-mode-hook 'xah-use-variable-width-font)
+  (<span class="function-name">add-hook</span> 'js-mode-hook 'xah-use-variable-width-font)
+  (<span class="function-name">add-hook</span> 'css-mode-hook 'xah-use-variable-width-font)
+  (<span class="function-name">add-hook</span> 'html-mode-hook 'xah-use-variable-width-font)
+  (<span class="function-name">add-hook</span> 'mhtml-mode-hook 'xah-use-variable-width-font))
+</pre>
+
+<p>[see <a href="emacs_list_and_set_font.html">Emacs: Font Setup</a>]</p>
+
+<div class="ads_bottom_dtpcz"></div>
+
+<div class="buyxahemacs97449">
+<p>If you have a question, put $5 at <a class="sorc" rel="noopener" target="_blank" href="https://www.patreon.com/xahlee" data-accessed="2017-08-01">patreon</a> and message me on xah discord.
+<br />
+Or support me by <a href="buy_xah_emacs_tutorial.html">Buy Xah Emacs Tutorial</a>
+</p>
+</div>
+
+</main>
+
+<div class="lpanel_h7h547">
+<h3><a href="emacs.html">Emacs Tutorial</a></h3>
+<h3><a href="emacs_init_index.html">Emacs Init</a></h3>
+<h3><a href="emacs_keys_index.html">Emacs Keys</a></h3>
+<h3><a href="elisp.html">ELisp</a></h3>
+<h3><a href="elisp_command_examples_index.html">ELisp Examples</a></h3>
+<h3><a href="elisp_write_major_mode_index.html">ELisp Write Major Mode</a></h3>
+<hr />
+<h3>Emacs Init</h3>
+<h4>Init Basics</h4>
+<ul>
+<li><a href="emacs_make_modern.html">Emacs init file</a></li>
+<li><a href="emacs_whats_major_mode.html">What's Major Mode</a></li>
+<li><a href="emacs_minor_mode.html">What's Minor Mode</a></li>
+<li><a href="emacs_custom_system.html">M-x customize</a></li>
+<li><a href="organize_your_dot_emacs.html">Organize Init File</a></li>
+<li><a href="emacs_byte_compile.html">Byte Compile Elisp</a></li>
+<li><a href="emacs_whats_hook.html">What's Hook</a></li>
+<li><a href="emacs_avoid_lambda_in_hook.html">Avoid Lambda in Hook</a></li>
+<li><a href="emacs_env_var_paths.html">Environment Variables in Emacs</a></li>
+<li><a href="elisp_determine_OS_version.html">Check OS, Version, Host Name</a></li>
+</ul>
+<h4>packages</h4>
+<ul>
+<li><a href="emacs_package_system.html">Install Packages</a></li>
+<li><a href="emacs_installing_packages.html">Install Package Manually</a></li>
+</ul>
+<h4>text editing</h4>
+<ul>
+<li><a href="emacs_tabs_space_indentation_setup.html">Tab/Space/Indent Setup</a></li>
+<li><a href="emacs_insert_brackets_by_pair.html">electric-pair-mode</a></li>
+<li><a href="emacs_isearch_space.html">Isearch space for - _</a></li>
+<li><a href="emacs_subword-mode_superword-mode.html">Move Cursor by camelCase</a></li>
+<li><a href="emacs_ido_setup.html">Ido Mode Setup</a></li>
+<li><a href="emacs_icomplete_mode.html">Icomplete Completion</a></li>
+<li><a href="emacs_stop_cursor_enter_prompt.html">Stop Cursor Going into Minibuffer Prompt</a></li>
+<li><a href="emacs_x11_sync_clipboard.html">Sync Clipboard with Linux X11</a></li>
+</ul>
+<h4>file</h4>
+<ul>
+<li><a href="emacs_auto-activate_a_major-mode.html">Default Major Mode</a></li>
+<li><a href="emacs_set_backup_into_a_directory.html">Auto Backup Off</a></li>
+<li><a href="emacs_auto_save.html">Auto Save</a></li>
+<li><a href="emacs_save_restore_opened_files.html">Restore Opened Files</a></li>
+<li><a href="emacs_save_cursor_position.html">Save Cursor Position</a></li>
+<li><a href="emacs_dired_tips.html">Dired Customization</a></li>
+</ul>
+<h4>appearance</h4>
+<ul>
+<li><a href="emacs_list_and_set_font.html">Font Setup</a></li>
+<li><a href="emacs_proportional_font.html">Proportional Font</a></li>
+<li><a href="emacs_switching_fonts.html">Cycle Fonts</a></li>
+<li><a href="emacs_line_number_mode.html">Show Line Numbers</a></li>
+<li><a href="emacs_column_number_mode.html">Show Cursor Position</a></li>
+<li><a href="emacs_high_light_current_line.html">High Light Current Line</a></li>
+<li><a href="emacs_form_feed_section_paging.html">Show Formfeed ^L as Line</a></li>
+<li><a href="emacs_toggle_line_spacing.html">Line Spacing</a></li>
+<li><a href="emacs_playing_with_color_theme.html">Set Color Theme</a></li>
+<li><a href="emacs_highlight_parenthesis.html">Highlight Brackets ()[]{}</a></li>
+<li><a href="emacs_pretty_lambda.html">Show lambda as λ</a></li>
+<li><a href="emacs_customize_default_window_size.html">Default Window Size</a></li>
+</ul>
+<h4>misc</h4>
+<ul>
+<li><a href="emacs_set_default_browser.html">Default Browser</a></li>
+<li><a href="emacs_misc_init.html">Misc Init Tips</a></li>
+</ul>
+</div>
+
+
+<footer><a href="../index.html"><span class="xsignet">∑</span><span class="xsignetxah">XAH</span></a> <div class="cpr">© 2006, 2021 Xah Lee.</div></footer>
+
+<script defer src="emacs_tooltip.js"></script>
+
+<script defer src="../highlightlink24082.js"></script>
+
+</body></html>
